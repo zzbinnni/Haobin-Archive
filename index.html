@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HAOBIN Archive</title>
+<meta name="description" content="장하오 × 성한빈 / 늘빈 作品索引">
+<style>
+:root{--bg:#faf7fa;--paper:#fffdfd;--pink:#eadbe4;--blue:#dbe8f0;--blue2:#c8dce8;--ink:#4f5661;--muted:#8d929b;--line:#e5dfe5;--accent:#758ca0;--rose:#a98598;--shadow:0 10px 30px rgba(93,92,105,.07)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#fbf8fb 0%,#f6f9fb 100%);color:var(--ink);font:15px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1120px;margin:auto;padding:28px 18px 60px}
+header{padding:28px 8px 22px;position:relative}.tiny{font-size:12px;letter-spacing:.16em;color:var(--rose);font-weight:700}.title{font-size:clamp(34px,7vw,62px);line-height:1;margin:9px 0 8px;letter-spacing:-.04em;color:#596472}.sub{color:var(--muted);font-size:14px}
+.doodle{position:absolute;right:12px;top:20px;font-size:25px;letter-spacing:9px;opacity:.58;max-width:250px;text-align:right}
+.panel{background:rgba(255,253,253,.78);border:2px solid var(--line);border-radius:22px;padding:16px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+.controls{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:10px}
+input,select{width:100%;border:2px solid #e8e2e8;border-radius:14px;padding:12px 13px;background:#fff;color:var(--ink);outline:none;font:inherit}
+input:focus,select:focus{border-color:var(--blue2);box-shadow:0 0 0 4px rgba(200,220,232,.25)}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin:13px 0 0}.chip{padding:6px 10px;border-radius:999px;background:#f1e9ef;border:1px solid #e4d7df;color:#7d7180;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.card{background:var(--paper);border:2px solid var(--line);border-radius:20px;padding:18px;transition:.18s transform,.18s box-shadow,.18s border-color;position:relative}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d7dfe5}.num{position:absolute;right:15px;top:14px;color:#b4b5bb;font-size:11px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.tag{font-size:11px;padding:3px 8px;border-radius:999px;background:#edf3f6;color:#718394}.tag.pink{background:#f4e9ef;color:#967c8c}
+h2{font-size:19px;line-height:1.35;margin:6px 30px 4px 0;color:#525c68}.cn{font-size:13px;color:#9a8a94;margin-bottom:10px}
+.meta{font-size:13px;color:#777f88;display:grid;gap:3px}.meta b{font-weight:600;color:#69727d}
+.open{display:inline-block;margin-top:13px;padding:8px 12px;border-radius:12px;background:#e7f0f4;color:#627b8c;text-decoration:none;font-weight:650;border:1px solid #d7e4ea}.open:hover{background:#dceaf0}
+.empty{text-align:center;padding:55px 10px;color:var(--muted);display:none}.foot{text-align:center;margin-top:30px;color:#a0a2a8;font-size:12px}
+@media(max-width:760px){.controls{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.doodle{position:static;margin-top:18px;text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="tiny">HAOBIN ARCHIVE</div>
+  <div class="title">늘빈 · 하오빈</div>
+  <div class="sub">장하오 × 성한빈｜原站入口与书目信息索引</div>
+  <div class="doodle">🦊 🐹 🐬 🐕 🎻 🐾</div>
+</header>
+
+<section class="panel">
+  <div class="controls">
+    <input id="q" placeholder="搜索标题、作者、设定……">
+    <select id="order"><option value="">全部顺序</option><option>장하오×성한빈</option><option>성한빈×장하오</option><option>늘빈</option></select>
+    <select id="type"><option value="">全部类型</option><option>长篇</option><option>连载</option><option>完结</option><option>短篇</option></select>
+    <select id="setting"><option value="">全部设定</option><option>现代</option><option>校园</option><option>历史/宫廷</option><option>末世</option><option>游戏</option><option>其他</option></select>
+  </div>
+  <div class="stats"><span class="chip" id="count"></span><span class="chip">仅收录原站入口</span><span class="chip">不搬运正文</span></div>
+</section>
+
+<div id="grid" class="grid"></div>
+<div id="empty" class="empty">没有找到匹配作品 🐾</div>
+<div class="foot">资料会继续整理｜链接以原站为准</div>
+</div>
+<script>
+const works=[
+["오아시스 / Oasis","绿洲","오늘","늘빈","长篇","连载","其他","Sentinel / Guide · 29篇 · 约48万浏览","https://www.postype.com/@always-here/series/1096225"],
+["제로 존 / Zero Zone","零号区","오늘","늘빈","长篇","连载","末世","末世生存 · 39篇 · 约37万浏览","https://www.postype.com/@always-here/series/1144402"],
+["기억 상실","失忆","kitty","늘빈","短篇","完结","现代","6篇完结 · 约1.8万浏览","https://www.postype.com/@waveletxx/series/1120175"],
+["너의 세계","你的世界","럭키","장하오×성한빈","连载","完结","现代","13篇完结 + extra","https://www.postype.com/@lucky-cencen/post/18085160"],
+["최애는 나로 해 줘♡ 上","请把我当作你的本命♡ 上","yves","장하오×성한빈","连载","完结","现代","娱乐圈 / 팬사인设定","https://www.postype.com/@exxuuu/post/14744670"],
+["최애는 나로 해 줘♡ 下","请把我当作你的本命♡ 下","yves","장하오×성한빈","连载","完结","现代","娱乐圈 / 팬사인设定","https://www.postype.com/@exxuuu/post/14866465"],
+["경복궁 신드롬","景福宫综合征","yves","장하오×성한빈","连载","完结","历史/宫廷","宫廷 AU / 校园元素","https://www.postype.com/@exxuuu/post/14894577"],
+["하이웨이 투 레드라인","通往红线的高速公路","yves","장하오×성한빈","连载","完结","现代","现实向恋爱","https://www.postype.com/@exxuuu/post/15090042"],
+["길드 내 연애 금지","禁止公会内恋爱","yves","장하오×성한빈","连载","完结","游戏","MMORPG AU","https://www.postype.com/@exxuuu/post/14815829"],
+["성토끼","成兔子","오래","장하오×성한빈","短篇","完结","现代","甜向恋爱","https://www.postype.com/@nb762513/post/16827781"],
+["FWB #1","FWB #1","오래","장하오×성한빈","短篇","完结","现代","现代恋爱","https://www.postype.com/@nb762513/post/15453935"],
+["파리에서 생긴 일","发生在巴黎的事","오래","장하오×성한빈","短篇","完结","现代","旅行 / 异地","https://www.postype.com/@nb762513/post/15271181"],
+["탈선","脱轨","오래","장하오×성한빈","短篇","完结","现代","情感向","https://www.postype.com/@nb762513/post/15146154"],
+["생일 축하해","生日快乐","오래","장하오×성한빈","短篇","完结","现代","生日 / 恋爱 · 约3.2万浏览","https://www.postype.com/@nb762513/post/14957632"],
+["구속 (확장판)","束缚（扩展版）","오래","장하오×성한빈","短篇","完结","现代","월간늘빈企划","https://www.postype.com/@nb762513/post/14870725"],
+["HBD to 🖤","HBD to 🖤","오래","장하오×성한빈","短篇","完结","现代","生日 / 情感向","https://www.postype.com/@nb762513/post/14711209"],
+["결핍","缺憾","오래","장하오×성한빈","短篇","完结","现代","情感向","https://www.postype.com/@nb762513/post/14680838"],
+["SP #2","SP #2","오래","장하오×성한빈","短篇","完结","现代","现代恋爱","https://www.postype.com/@nb762513/post/14633141"],
+["나만 몰랐던","只有我不知道","오래","장하오×성한빈","短篇","完结","现代","情感向","https://www.postype.com/@nb762513/post/14617161"],
+["어떤 방","某个房间","오래","장하오×성한빈","短篇","完结","现代","现代 / 多人关系设定","https://www.postype.com/@nb762513/post/14575578"],
+["IDEAL LOVER - 3 (完)","理想恋人","비타민C","장하오×성한빈","连载","完结","现代","分手 / 复合 / 成长 · 3篇完结","https://www.postype.com/@vitaminc-nb/post/15401075"],
+["신혼일기","新婚日记","단호떡","늘빈","短篇","完结","现代","婚后甜向短篇集","https://www.postype.com/@ho-rice-cake/post/14697509"],
+["청성부록","青星附录","오늘","장하오×성한빈","长篇","连载","历史/宫廷","历史 / 宫廷 / 悬疑","https://www.postype.com/@always-here/post/15719384"],
+["청성연문","青星恋文","오늘","늘빈","连载","完结","历史/宫廷","历史向 · Clean ver.","https://www.postype.com/@always-here/post/16362047"],
+["2030999","2030999","월간 늘빈","늘빈","连载","连载","其他","命定关系 / 寻人 / Quest · 月刊企划","https://www.postype.com/@monthly-nb/post/15410901"],
+["전생에 그저 평범한 대학생이던 내가…","转生后我竟附身成了BL小说主角","해야","장하오×성한빈","长篇","连载","其他","빙의 / 穿书类设定","https://www.postype.com/@byoosk"],
+["재수 있는 동거 1","倒霉又幸运的同居 1","마라라","장하오×성한빈","连载","连载","现代","同居 / 阶层差异","https://www.postype.com/@jshh123/post/16359749"],
+["이노센트 / INNOSCENT 8","InnoScent 8","이모저모","장하오×성한빈","长篇","连载","校园","校园 / 过去回忆 · 2026更新","https://www.postype.com/@ddarakbbang/post/21519738"],
+["Target 上","Target（上）","규토","장하오×성한빈","连载","连载","其他","刺客 × 委托人 / 救赎向","https://www.postype.com/@631nb0/post/17457218"],
+["데스 킹크 13","Death Kink 13","퍼넷","늘빈","连载","连载","其他","成人向 / 暗黑标签","https://www.postype.com/@someonetoserve/post/21871827"],
+["데스 킹크 14","Death Kink 14","퍼넷","늘빈","连载","连载","其他","成人向 / 暗黑标签","https://www.postype.com/@someonetoserve/post/22013554"],
+["권태 H (CLEAN ver.)","倦怠 H（Clean版）","산새","장하오×성한빈","短篇","完结","现代","Clean版 / 情感向","https://www.postype.com/@saeisinthesan/post/14583272"],
+["자석을 피하는 방법은 없나요..?","有没有躲开磁铁的方法？","하늘","늘빈","连载","连载","现代","互相救赎 / 都市","https://www.postype.com/@cx-en2"],
+["환승연애의 재결합 가능성 1(%)","换乘恋爱的复合可能性1(%)","caster","늘빈","连载","连载","现代","恋综 / 前任 AU","https://www.postype.com/@ssummerforever"]
+];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function render(){
+ const q=document.querySelector("#q").value.trim().toLowerCase(),o=document.querySelector("#order").value,t=document.querySelector("#type").value,s=document.querySelector("#setting").value;
+ const list=works.filter(w=>(!q||w.join(" ").toLowerCase().includes(q))&&(!o||w[3]===o)&&(!t||w[4]===t)&&(!s||w[6]===s));
+ document.querySelector("#count").textContent=list.length+" / "+works.length+" 部";
+ document.querySelector("#grid").innerHTML=list.map((w,i)=>`<article class="card"><span class="num">#${String(works.indexOf(w)+1).padStart(2,"0")}</span><div class="tags"><span class="tag pink">${esc(w[3])}</span><span class="tag">${esc(w[4])}</span><span class="tag">${esc(w[5])}</span><span class="tag">${esc(w[6])}</span></div><h2>${esc(w[0])}</h2><div class="cn">${esc(w[1])}</div><div class="meta"><span><b>作者</b>　${esc(w[2])}</span><span><b>信息</b>　${esc(w[7])}</span></div><a class="open" href="${esc(w[8])}" target="_blank" rel="noopener">打开原站 ↗</a></article>`).join("");
+ document.querySelector("#empty").style.display=list.length?"none":"block";
+}
+["q","order","type","setting"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+render();
+</script>
+</body></html>
