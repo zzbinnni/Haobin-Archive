@@ -6,28 +6,35 @@
 <title>HAOBIN Archive</title>
 <meta name="description" content="장하오 × 성한빈 / 늘빈 作品索引">
 <style>
-:root{--bg:#faf7fa;--paper:#fffdfd;--pink:#eadbe4;--blue:#dbe8f0;--blue2:#c8dce8;--ink:#4f5661;--muted:#8d929b;--line:#e5dfe5;--accent:#758ca0;--rose:#a98598;--shadow:0 10px 30px rgba(93,92,105,.07)}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#fbf8fb 0%,#f6f9fb 100%);color:var(--ink);font:15px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
-.wrap{max-width:1120px;margin:auto;padding:28px 18px 60px}
-header{padding:28px 8px 22px;position:relative}.tiny{font-size:12px;letter-spacing:.16em;color:var(--rose);font-weight:700}.title{font-size:clamp(34px,7vw,62px);line-height:1;margin:9px 0 8px;letter-spacing:-.04em;color:#596472}.sub{color:var(--muted);font-size:14px}
-.doodle{position:absolute;right:8px;top:14px;display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end;max-width:270px;transform:rotate(2deg)}.doodle span{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:12px;background:rgba(255,255,255,.62);border:1px solid rgba(205,188,204,.7);box-shadow:0 6px 16px rgba(110,102,120,.07);font-size:20px;animation:floaty 4.5s ease-in-out infinite}.doodle span:nth-child(2n){animation-delay:-1.3s}.doodle span:nth-child(3n){animation-delay:-2.4s}@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(3deg)}}
-.panel{position:relative;overflow:hidden;background:rgba(255,253,253,.78);border:2px solid var(--line);border-radius:22px;padding:16px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+:root{--bg:#fff8fb;--paper:#fffefe;--pink:#f4cfe0;--pink2:#eeb8d2;--blue:#cfe8f5;--blue2:#a9d5ea;--ink:#4f5965;--muted:#7f8994;--line:#c9e1ee;--accent:#79afd0;--rose:#d28baa;--shadow:0 12px 32px rgba(113,171,201,.12)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 8% 12%,rgba(244,207,224,.5),transparent 25%),radial-gradient(circle at 92% 20%,rgba(207,232,245,.6),transparent 27%),linear-gradient(145deg,#fff7fa 0%,#f4fbff 100%);color:var(--ink);font:15px/1.7 "Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;overflow-x:hidden}
+.wrap{max-width:1120px;margin:auto;padding:28px 18px 60px;position:relative}
+header{padding:28px 8px 22px;position:relative;z-index:2}.tiny{font-size:12px;letter-spacing:.16em;color:var(--rose);font-weight:800}.title{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-size:clamp(34px,7vw,62px);line-height:1;margin:9px 0 8px;letter-spacing:-.04em;color:#5b87a1;text-shadow:2px 2px 0 rgba(244,207,224,.6)}.sub{color:#8294a1;font-size:14px}
+.doodle{position:absolute;right:8px;top:14px;display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end;max-width:270px;transform:rotate(2deg)}.doodle span{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:12px;background:rgba(255,255,255,.72);border:1px solid rgba(226,170,196,.65);box-shadow:0 7px 18px rgba(123,178,207,.1);font-size:20px;animation:floaty 4.5s ease-in-out infinite}.doodle span:nth-child(2n){animation-delay:-1.3s}.doodle span:nth-child(3n){animation-delay:-2.4s}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(3deg)}}
+.panel{position:relative;overflow:hidden;background:rgba(255,255,255,.78);border:2px solid var(--line);outline:1px solid rgba(238,184,210,.8);outline-offset:-7px;border-radius:22px;padding:16px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+.panel:before,.panel:after{content:"✦";position:absolute;color:rgba(210,139,170,.55);font-size:12px}.panel:before{left:11px;top:9px}.panel:after{right:11px;bottom:9px}
 .controls{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:10px}
-input,select{width:100%;border:2px solid #e8e2e8;border-radius:14px;padding:12px 13px;background:#fff;color:var(--ink);outline:none;font:inherit}
-input:focus,select:focus{border-color:var(--blue2);box-shadow:0 0 0 4px rgba(200,220,232,.25)}
-.stats{display:flex;gap:8px;flex-wrap:wrap;margin:13px 0 0}.chip{padding:6px 10px;border-radius:999px;background:#f1e9ef;border:1px solid #e4d7df;color:#7d7180;font-size:12px}
+input,select{width:100%;border:2px solid #cfe3ee;border-radius:14px;padding:12px 13px;background:#fff;color:var(--ink);outline:none;font:inherit}
+input:focus,select:focus{border-color:var(--pink2);box-shadow:0 0 0 4px rgba(244,207,224,.28)}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin:13px 0 0}.chip{padding:6px 10px;border-radius:999px;background:#fbeaf2;border:1px solid #f0c9dc;color:#9b7185;font-size:12px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
-.card{background:linear-gradient(145deg,rgba(255,253,253,.98),rgba(249,246,250,.96));border:2px solid var(--line);border-radius:20px;padding:19px;transition:.18s transform,.18s box-shadow,.18s border-color;position:relative}
-.card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d7dfe5}.num{position:absolute;right:15px;top:14px;color:#b4b5bb;font-size:11px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.tag{font-size:11px;padding:3px 8px;border-radius:999px;background:#edf3f6;color:#718394}.tag.pink{background:#f4e9ef;color:#967c8c}
-h2{font-size:19px;line-height:1.35;margin:6px 30px 4px 0;color:#525c68}.cn{font-size:13px;color:#9a8a94;margin-bottom:10px}
-.meta{font-size:13px;color:#777f88;display:grid;gap:3px}.meta b{font-weight:600;color:#69727d}
-.open{display:inline-block;margin-top:13px;padding:8px 12px;border-radius:12px;background:#e7f0f4;color:#627b8c;text-decoration:none;font-weight:650;border:1px solid #d7e4ea}.open:hover{background:#dceaf0}
-.empty{text-align:center;padding:55px 10px;color:var(--muted);display:none}.foot{text-align:center;margin-top:30px;color:#a0a2a8;font-size:12px}
-@media(max-width:760px){.controls{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.doodle{position:static;margin-top:18px;text-align:left}}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(248,252,255,.97));border:2px solid #c9e1ee;outline:1px dashed rgba(238,184,210,.9);outline-offset:-6px;border-radius:20px;padding:19px;transition:.18s transform,.18s box-shadow,.18s border-color;position:relative}
+.card:before,.card:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#efbdd5;box-shadow:0 0 0 3px rgba(255,255,255,.8)}.card:before{left:8px;top:8px}.card:after{right:8px;bottom:8px}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(116,174,204,.16);border-color:#a9d5ea}.num{position:absolute;right:15px;top:14px;color:#91b5c9;font-size:11px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.tag{font-size:11px;padding:3px 8px;border-radius:999px;background:#e9f5fb;color:#6f9ab1}.tag.pink{background:#fbe8f1;color:#a36f87}
+h2{font-size:19px;line-height:1.35;margin:6px 30px 4px 0;color:#4f7083}.cn{font-size:13px;color:#b07891;margin-bottom:10px}
+.meta{font-size:13px;color:#6f7e88;display:grid;gap:3px}.meta b{font-weight:700;color:#607684}
+.open{display:inline-block;margin-top:13px;padding:8px 12px;border-radius:12px;background:#e1f1f8;color:#5d89a1;text-decoration:none;font-weight:700;border:1px solid #bcddec}.open:hover{background:#d4ebf5}
+.side-decor{position:fixed;top:22vh;bottom:18vh;width:54px;display:flex;flex-direction:column;justify-content:space-around;pointer-events:none;z-index:0}.side-decor.left{left:4px}.side-decor.right{right:4px}.side-decor span{display:block;width:9px;height:9px;border-radius:50%;background:#f0b9d2;box-shadow:18px 0 0 #c5e3f2,8px 15px 0 rgba(240,185,210,.72);animation:sideFloat 5.5s ease-in-out infinite}.side-decor span:nth-child(2n){width:13px;height:13px;background:#c4e2f1;box-shadow:-16px 4px 0 #f1c4d8;animation-delay:-2.2s}.side-decor span:nth-child(3n){border-radius:3px;transform:rotate(45deg);animation-delay:-3.4s}@keyframes sideFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-11px) rotate(12deg)}}
+.empty{text-align:center;padding:55px 10px;color:var(--muted);display:none}.foot{text-align:center;margin-top:30px;color:#8da0ac;font-size:12px}
+@media(max-width:760px){.controls{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.doodle{position:static;margin-top:18px;text-align:left}.side-decor{width:26px;opacity:.62}.side-decor.left{left:0}.side-decor.right{right:0}.panel,.card{outline-offset:-5px}}
 </style>
 </head>
 <body>
+<div class="side-decor left" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<div class="side-decor right" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 <div class="wrap">
 <header>
   <div class="tiny">HAOBIN ARCHIVE</div>
@@ -134,7 +141,7 @@ const works=[
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function render(){
  const q=document.querySelector("#q").value.trim().toLowerCase(),o=document.querySelector("#order").value,t=document.querySelector("#type").value,s=document.querySelector("#setting").value;
- const list=works.filter(w=>(!q||w.join(" ").toLowerCase().includes(q))&&(!o||w[3]===o)&&(!t||w[4]===t)&&(!s||w[6]===s));
+ const list=works.filter(w=>(!q||w.join(" ").toLowerCase().includes(q))&&(!o||w[3]===o)&&(!t||w[4]===t)&&(!s||w[6].includes(s)));
  document.querySelector("#count").textContent=list.length+" / "+works.length+" 部";
  document.querySelector("#grid").innerHTML=list.map((w,i)=>`<article class="card"><span class="num">#${String(works.indexOf(w)+1).padStart(2,"0")}</span><div class="tags"><span class="tag pink">${esc(w[3])}</span><span class="tag">${esc(w[4])}</span><span class="tag">${esc(w[5])}</span><span class="tag">${esc(w[6])}</span></div><h2>${esc(w[0])}</h2><div class="cn">${esc(w[1])}</div><div class="meta"><span><b>作者</b>　${esc(w[2])}</span><span><b>简介</b>　${esc(w[7])}</span></div><a class="open" href="${esc(w[8])}" target="_blank" rel="noopener">进入原站 ↗</a></article>`).join("");
  document.querySelector("#empty").style.display=list.length?"none":"block";
