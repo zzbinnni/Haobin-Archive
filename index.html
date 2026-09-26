@@ -152,14 +152,17 @@ const works=[[["某个夜晚","某个夜晚","little_ice_cube","Sung Hanbin/Zhan
 ["자석을 피하는 방법은 없나요..?","有没有躲开磁铁的方法？","하늘","늘빈","连载","连载","现代","互相救赎 / 都市","https://www.postype.com/@cx-en2"],
 ["환승연애의 재결합 가능성 1(%)","换乘恋爱的复合可能性1(%)","caster","늘빈","连载","连载","现代","恋综 / 前任 AU","https://www.postype.com/@ssummerforever"]
 ];
-const zhTitles=new Set(["某个夜晚","只有我知道的事｜中部","榴莲味的Alpha也会有自己的Omega吗","The scene","抱抱哈哦","抱抱哈哦｜番外","只有我知道的事｜上部","双饼夹昊","pepero day","Blue Moon","首尔夜雨","〖出言成章｜彬昊〗二十三秒","〖冰昊〗绿野仙踪","The Sun Prince","绿野仙踪","Game, Set, Mate"]);
+const languageOverrides={"某个夜晚":"中文","只有我知道的事｜中部":"中文","榴莲味的Alpha也会有自己的Omega吗":"中文","The scene":"中文","抱抱哈哦":"中文","抱抱哈哦｜番外":"中文","只有我知道的事｜上部":"中文","双饼夹昊":"中文","pepero day":"中文","Blue Moon":"中文","首尔夜雨":"中文","〖出言成章｜彬昊〗二十三秒":"中文","〖冰昊〗绿野仙踪":"中文","绿野仙踪":"中文","Game, Set, Mate":"中文"};
+const sourceOf=w=>w[8].includes("postype.com")?"Postype":"AO3";
+const languageOf=w=>languageOverrides[w[0]]||(w[8].includes("postype.com")?"한국어":"English");
+works.forEach(w=>{w.source=sourceOf(w);w.language=languageOf(w);});
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function render(){
  const q=document.querySelector("#q").value.trim().toLowerCase(),o=document.querySelector("#order").value,t=document.querySelector("#type").value,s=document.querySelector("#setting").value;
  const lang=document.querySelector("#lang").value,src=document.querySelector("#source").value;
- const list=works.filter(w=>(!q||w.join(" ").toLowerCase().includes(q))&&(!o||w[3]===o)&&(!t||w[4]===t)&&(!s||w[6].includes(s))&&(!src||(w[8].includes("postype.com")?"Postype":"AO3")===src)&&(!lang||((w[8].includes("postype.com")?"한국어":(zhTitles.has(w[0])?"中文":"English"))===lang)));
+ const list=works.filter(w=>(!q||w.join(" ").toLowerCase().includes(q))&&(!o||w[3]===o)&&(!t||w[4]===t)&&(!s||w[6].includes(s))&&(!src||w.source===src)&&(!lang||w.language===lang));
  document.querySelector("#count").textContent=list.length+" / "+works.length+" 部";
- document.querySelector("#grid").innerHTML=list.map((w,i)=>`<article class="card"><span class="num">#${String(works.indexOf(w)+1).padStart(2,"0")}</span><div class="tags"><span class="tag pink">${esc(w[3])}</span><span class="tag">${esc(w[4])}</span><span class="tag">${esc(w[5])}</span><span class="tag">${esc(w[6])}</span></div><h2>${esc(w[0])}</h2><div class="cn">${esc(w[1])}</div><div class="meta"><span><b>作者</b>　${esc(w[2])}</span><span><b>简介</b>　${esc(w[7])}</span><span><b>来源</b>　${w[8].includes("postype.com")?"Postype":"AO3"}　·　<b>语言</b>　${w[8].includes("postype.com")?"한국어":(zhTitles.has(w[0])?"中文":"English")}</span></div><div class="actions"><a class="open" href="${esc(w[8])}" target="_blank" rel="noopener">进入原站 ↗</a>${!zhTitles.has(w[0])?'<a class="translate" href="https://translate.google.com/translate?sl=auto&tl=zh-CN&u='+encodeURIComponent(w[8])+'" target="_blank" rel="noopener">中文网页翻译 ↗</a>':""}</div></article>`).join("");
+ document.querySelector("#grid").innerHTML=list.map((w,i)=>`<article class="card"><span class="num">#${String(works.indexOf(w)+1).padStart(2,"0")}</span><div class="tags"><span class="tag pink">${esc(w[3])}</span><span class="tag">${esc(w[4])}</span><span class="tag">${esc(w[5])}</span><span class="tag">${esc(w[6])}</span></div><h2>${esc(w[0])}</h2><div class="cn">${esc(w[1])}</div><div class="meta"><span><b>作者</b>　${esc(w[2])}</span><span><b>简介</b>　${esc(w[7])}</span><span><b>来源</b>　${w.source}　·　<b>语言</b>　${w.language}</span></div><div class="actions"><a class="open" href="${esc(w[8])}" target="_blank" rel="noopener">进入原站 ↗</a>${w.language!=="中文"?'<a class="translate" href="https://translate.google.com/translate?sl=auto&tl=zh-CN&u='+encodeURIComponent(w[8])+'" target="_blank" rel="noopener">中文网页翻译 ↗</a>':""}</div></article>`).join("");
  document.querySelector("#empty").style.display=list.length?"none":"block";
 }
 ["q","order","type","setting","lang","source"].forEach(id=>document.getElementById(id).addEventListener("input",render));
