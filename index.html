@@ -52,7 +52,7 @@ h2{font-size:19px;line-height:1.35;margin:6px 30px 4px 0;color:#4f7083}.cn{font-
     <select id="lang"><option value="">全部语言</option><option>中文</option><option>English</option><option>한국어</option></select>
     <select id="source"><option value="">全部来源</option><option>AO3</option><option>Postype</option><option>AsianFanfics</option></select>
   </div>
-  <div class="stats"><span class="chip" id="count"></span><span class="chip">原站入口 / 部分AO3条目为作者作品页</span><span class="chip">不搬运正文</span><span class="chip">语言 / 来源可筛选</span></div>
+  <div class="stats"><span class="chip" id="count"></span><span class="chip">原站入口 · 仅收录可直达作品页面的条目</span><span class="chip">不搬运正文</span><span class="chip">语言 / 来源可筛选</span></div>
 </section>
 
 <div id="grid" class="grid"></div>
@@ -128,9 +128,29 @@ const works=[["某个夜晚","某个夜晚","little_ice_cube","Sung Hanbin/Zhang
 ["딜리버리엑스백업 下","Delivery X Backup 下","나카무라미영","늘빈","中篇","完结","职场","上司×下属；系列下篇；约6.9千浏览、544点赞、51评论","https://www.postype.com/@nakamuramy/post/16183743"],
 ["no banquet with no end (but i will never leave)","没有不散的宴席（但我永远不会离开）","elkberry","Sung Hanbin/Zhang Hao","中篇","完结","现代/现实向","以团体未来变化为背景的关系向作品；约2.38万词、525 kudos、171 bookmarks、9.35k hits","https://secure.ao3.org/works/81267521"],
 ["enraptured, rapture","沉醉于爱","elkberry","Sung Hanbin/Zhang Hao","短篇","完结","音乐/职场","小提琴手章昊×教师韩彬；2026年新作；8,810词、113 kudos","https://secure.ao3.org/works/89070391"],
-["〖出言成章〗上门服务：豪门水管工的心尖宠","上门服务：豪门水管工的心尖宠","PeachWaffle","장하오×성한빈","短篇","完结","现代","AsianFanfics；已完结；约6,000浏览；作者作品页入口","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗暴雨效应","暴雨效应","PeachWaffle","장하오×성한빈","长篇","完结","现代/成长","AsianFanfics；31章；约7,390浏览、44+订阅；已完结","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗完美圣诞","完美圣诞","PeachWaffle","장하오×성한빈","短篇","完结","现代/节日","AsianFanfics；约3,160浏览；圣诞短篇","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
+["某个夜晚","某个夜晚","little_ice_cube","Sung Hanbin/Zhang Hao","短篇","完结","现代","中文；情人节短打；约1.9k字","https://archiveofourown.org/works/79511246"],
+["只有我知道的事｜中部（已完结）","只有我知道的事｜中部（已完结）","little_ice_cube","Sung Hanbin/Zhang Hao","长篇","完结","幻想/IF","中文；中部完结；约11.1万字","https://archiveofourown.org/works/65734330"],
+["榴莲味的Alpha也会有自己的Omega吗","榴莲味的Alpha也会有自己的Omega吗","little_ice_cube","Sung Hanbin/Zhang Hao","中篇","完结","ABO/校园","中文；AO设定；榴莲味冰×转学生昊；约8k字","https://archiveofourown.org/works/63842854"],
+["抱抱哈哦｜番外","抱抱哈哦｜番外","little_ice_cube","Sung Hanbin/Zhang Hao","短篇","完结","动物拟人/童话","中文；《抱抱哈哦》番外；约4.4k字","https://archiveofourown.org/works/61836385"],
+["只有我知道的事｜上部","只有我知道的事｜上部","little_ice_cube","Sung Hanbin/Zhang Hao","长篇","完结","幻想/IF","中文；幻想+IF线；约10.4万字","https://archiveofourown.org/works/56645140/chapters/143986102"],
+["双饼夹昊","双饼夹昊","little_ice_cube","Sung Hanbin/Zhang Hao","短篇","完结","梦境/IF","中文；《只有我知道的事》梦境IF线番外","https://archiveofourown.org/works/59016685"],
+["pepero day","pepero day","little_ice_cube","Sung Hanbin/Zhang Hao","短篇","完结","现代/日常","中文；《只有我知道的事》时间线番外","https://archiveofourown.org/works/60517822"],
+["Blue Moon","Blue Moon","little_ice_cube","Sung Hanbin/Zhang Hao","长篇","完结","现背/幻想","中文；现背+幻想；约22.9万字；温馨向","https://archiveofourown.org/works/47462626"],
+["首尔夜雨","首尔夜雨","little_ice_cube","Sung Hanbin/Zhang Hao","中篇","完结","现背/破镜重圆","中文；分手与复合；约9.5k字","https://archiveofourown.org/works/46100170"],
+["〖出言成章｜彬昊〗二十三秒","二十三秒","V_sweetheartLanLi","Sung Hanbin/Zhang Hao","中篇","完结","Boys Planet/现背","中文；主题曲录制期间；约6.2k字","https://archive.transformativeworks.org/works/45003808"],
+["〖冰昊〗绿野仙踪","绿野仙踪","Seleinary","Sung Hanbin/Zhang Hao","中篇","完结","田园/治愈","中文；牧场主×辞职金领；慢热治愈；约4.31万字","https://archive.transformativeworks.org/works/51300907"],
+["Ride to Sunrise","Ride to Sunrise","minhyunbin","Sung Hanbin/Zhang Hao","短篇","完结","现代/旅行","English；4,549 words；AsianFanfics直接作品页","https://www.asianfanfics.com/story/view/1576156/ride-to-sunrise"],
+["Carriage Rendezvous","Carriage Rendezvous","minhyunbin","Sung Hanbin/Zhang Hao","短篇","完结","历史/旅行","English；4,427 words；AsianFanfics直接作品页","https://www.asianfanfics.com/story/view/1572545/carriage-rendezvous"],
+["자석을 피하는 방법은 없나요..?","有没有躲开磁铁的方法？","하늘","늘빈","短篇","连载","现代/救赎","한국어；2025年1月5日；双向救赎","https://www.postype.com/@cx-en2/post/18393442"],
+["C9인 줄 알았지? 사랑이야","以为是C9？其实是爱情","퍼넷","늘빈","短篇","完结","现代","한국어；2026年3月；约2.4万字；21评论","https://www.postype.com/@someonetoserve/post/21925951"],
+["데스 킹크 13","Death Kink 13","퍼넷","늘빈","中篇","连载","现代/暗黑","한국어；2026年3月；约2.7万字","https://www.postype.com/@someonetoserve/post/21871827"],
+["데스 킹크 14","Death Kink 14","퍼넷","늘빈","中篇","连载","现代/暗黑","한국어；2026年4月；约2.4万字","https://www.postype.com/@someonetoserve/post/22013554"],
+["라스트 비즈니스 게이 퍼포먼스","最后的 Business Gay Performance","꽈리","늘빈","中篇","完结","职场/现代","한국어；2026年3月；约7,650字；11评论","https://www.postype.com/@thatisneverthis/post/21888057"],
+["불가항력 관계 上","不可抗力关系 上","온","늘빈","中篇","连载","电竞/现代","한국어；2026年4月；连载上篇","https://www.postype.com/@smfqlswwkd/post/22049671"],
+["빙빙유시낙연기 氷氷遊時樂戀記 1","冰冰游时乐恋记 1","호무라","늘빈","中篇","连载","历史/穿越","한국어；2026年3月；古代蒙古背景穿越","https://www.postype.com/@homura/post/21932385"],
+["빙빙유시낙연기 氷氷遊時樂戀記 2","冰冰游时乐恋记 2","호무라","늘빈","中篇","连载","历史/穿越","한국어；2026年3月；古代蒙古背景穿越","https://www.postype.com/@homura/post/21948278"],
+["이노센트 8","InnoScent 8","이모저모","늘빈","中篇","连载","校园/成长","한국어；2026年2月；直接作品页","https://www.postype.com/@ddarakbbang/post/21519738"],
+["이노센트 10","InnoScent 10","이모저모","늘빈","中篇","连载","校园/成长","한국어；2026年3月；直接作品页","https://www.postype.com/@ddarakbbang/post/21788113"],
 ["오아시스 / Oasis","绿洲","오늘","늘빈","长篇","连载","其他","Sentinel / Guide · 29篇 · 约48万浏览","https://www.postype.com/@always-here/series/1096225"],
 ["제로 존 / Zero Zone","零号区","오늘","늘빈","长篇","连载","末世","末世生存 · 39篇 · 约37万浏览","https://www.postype.com/@always-here/series/1144402"],
 ["기억 상실","失忆","kitty","늘빈","短篇","完结","现代","6篇完结 · 约1.8万浏览","https://www.postype.com/@waveletxx/series/1120175"],
@@ -165,28 +185,10 @@ const works=[["某个夜晚","某个夜晚","little_ice_cube","Sung Hanbin/Zhang
 ["권태 H (CLEAN ver.)","倦怠 H（Clean版）","산새","장하오×성한빈","短篇","完结","现代","Clean版 / 情感向","https://www.postype.com/@saeisinthesan/post/14583272"],
 ["자석을 피하는 방법은 없나요..?","有没有躲开磁铁的方法？","하늘","늘빈","连载","连载","现代","互相救赎 / 都市","https://www.postype.com/@cx-en2"],
 ["환승연애의 재결합 가능성 1(%)","换乘恋爱的复合可能性1(%)","caster","늘빈","连载","连载","现代","恋综 / 前任 AU","https://www.postype.com/@ssummerforever"],
-["〖出言成章〗零时十分","零时十分","PeachWaffle","장하오×성한빈","短篇","完结","现代","AsianFanfics · 约1.24万浏览 · 2条评论","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗主人的饲养指南","主人的饲养指南","PeachWaffle","장하오×성한빈","短篇","完结","现代","AsianFanfics · 约8780浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗一百个再爱上你的方法","一百个再爱上你的方法","PeachWaffle","장하오×성한빈","短篇","完结","现代","AsianFanfics · 约3020浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗一百个不喜欢你的方法","一百个不喜欢你的方法","PeachWaffle","장하오×성한빈","短篇","完结","现代","AsianFanfics · 约2100浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗一百个不离开你的方法","一百个不离开你的方法","PeachWaffle","장하오×성한빈","短篇","完结","现代","AsianFanfics · 约2570浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗现代爱情故事","现代爱情故事","PeachWaffle","장하오×성한빈","短篇","完结","现代","AsianFanfics · 约4550浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗纽约爱情故事","纽约爱情故事","PeachWaffle","장하오×성한빈","短篇","完结","现代/旅行","AsianFanfics · 约3380浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗完美情人","完美情人","PeachWaffle","장하오×성한빈","短篇","连载","现代","AsianFanfics · 约4620浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗平生缘","平生缘","PeachWaffle","장하오×성한빈","中篇","连载","历史/宫廷","AsianFanfics · 26篇 · 约3720浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗关于飞行员体检","关于飞行员体检","PeachWaffle","장하오×성한빈","短篇","完结","现代","AsianFanfics · 约3510浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗间歇性休眠","间歇性休眠","PeachWaffle","장하오×성한빈","中篇","完结","现代/成长","AsianFanfics · 12篇 · 约2270浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗荔枝夏","荔枝夏","PeachWaffle","장하오×성한빈","短篇","连载","现代","AsianFanfics · 约3010浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗Dive Into","Dive Into","PeachWaffle","장하오×성한빈","中篇","完结","现代","AsianFanfics · 11篇 · 约4490浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["睡前禁止阅览育儿手册","睡前禁止阅览育儿手册","mwismw","Sung Hanbin/Zhang Hao","中篇","完结","现代/家庭","2025昊冰联产 · 约1.6万字 · HE · AsianFanfics约3170浏览","https://www.asianfanfics.com/profile/view_author_stories/mwismw"],
-["〖出言成章〗暴雨效应","暴雨效应","PeachWaffle","장하오×성한빈","长篇","完结","现代/成长","AsianFanfics · 31篇 · 约7390浏览 · 44+订阅","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["〖出言成章〗犬系恋爱须知","犬系恋爱须知","PeachWaffle","장하오×성한빈","中篇","完结","现代/成长","AsianFanfics · 11篇 · 约2900浏览","https://www.asianfanfics.com/profile/view_author_stories/PeachWaffle"],
-["出言成章丨我们","我们","Miyako33","Sung Hanbin/Zhang Hao","短篇","完结","职场/现代","双总裁设定 · AsianFanfics约1010浏览","https://www.asianfanfics.com/profile/view_author_stories/Miyako33"],
-["出言成章丨偶像失格","偶像失格","Miyako33","Sung Hanbin/Zhang Hao","中篇","连载","娱乐圈","小糊豆×职粉 · 12篇 · AsianFanfics约1230浏览","https://www.asianfanfics.com/profile/view_author_stories/Miyako33"],
-["结痂伤疤","结痂伤疤","pinkwinter","Sung Hanbin/Zhang Hao","短篇","连载","现代","2篇 · AsianFanfics约1850浏览","https://www.asianfanfics.com/profile/view_author_stories/pinkwinter"],
-["我最好朋友的婚礼","我最好朋友的婚礼","evener","Sung Hanbin/Zhang Hao","短篇","连载","现代/重逢","破镜重圆 · 社畜昊×创业彬 · AsianFanfics约680浏览","https://www.asianfanfics.com/profile/view_author_stories/evener"]
 ];
+const dateOverrides={"榴莲味的Alpha也会有自己的Omega吗":"2025年03月","只有我知道的事｜上部":"2024年06月","双饼夹昊":"2024年09月","pepero day":"2024年11月","Blue Moon":"2023年05月","首尔夜雨":"2023年03月","〖出言成章｜彬昊〗二十三秒":"2023年02月","〖冰昊〗绿野仙踪":"2023年11月","Ride to Sunrise":"2024年05月","Carriage Rendezvous":"2024年04月","자석을 피하는 방법은 없나요..":"2025年01月","C9인 줄 알았지? 사랑이야":"2026年03月","데스 킹크 13":"2026年03月","데스 킹크 14":"2026年04月","라스트 비즈니스 게이 퍼포먼스":"2026年03月","불가항력 관계 上":"2026年04月","빙빙유시낙연기 氷氷遊時樂戀記 1":"2026年03月","빙빙유시낙연기 氷氷遊時樂戀記 2":"2026年03月","이노센트 8":"2026年02月","이노센트 10":"2026年03月","오아시스 / Oasis":"2023年04月","제로 존 / Zero Zone":"2023年08月","기억 상실":"2023年05月","최애는 나로 해 줘♡ 上":"2023年06月","최애는 나로 해 줘♡ 下":"2023年07月","경복궁 신드롬":"2023年07月","하이웨이 투 레드라인":"2023年08月","길드 내 연애 금지":"2023年07月","성토끼":"2024年05月","FWB #1":"2023年10月","파리에서 생긴 일":"2023年09月","탈선":"2023年08月","생일 축하해":"2023年07月","구속 (확장판)":"2023年07月","HBD to 🖤":"2023年06月","결핍":"2023年06月","SP #2":"2023年05月","나만 몰랐던":"2023年05月","어떤 방":"2023年05月","청성연문":"2024年02月","2030999":"2023年10月","재수 있는 동거 1":"2024年02月","권태 H (CLEAN ver.)":"2023年05月","너의 세계. 외전":"2024年11月",,"The Sun Prince":"2023年04月","you\u0027re catnip to a boy like me":"2024年07月","the wind, it blew me to you":"2025年09月"};
 const languageOverrides={"某个夜晚":"中文","只有我知道的事｜中部":"中文","榴莲味的Alpha也会有自己的Omega吗":"中文","The scene":"中文","抱抱哈哦":"中文","抱抱哈哦｜番外":"中文","只有我知道的事｜上部":"中文","双饼夹昊":"中文","pepero day":"中文","Blue Moon":"中文","首尔夜雨":"中文","〖出言成章｜彬昊〗二十三秒":"中文","〖冰昊〗绿野仙踪":"中文","绿野仙踪":"中文","Game, Set, Mate":"中文"};
+const dateOf=w=>dateOverrides[w[0]]||"";
 const sourceOf=w=>w[8].includes("postype.com")?"Postype":(w[8].includes("asianfanfics.com")?"AsianFanfics":"AO3");
 const languageOf=w=>languageOverrides[w[0]]||(w[8].includes("postype.com")?"한국어":(w[8].includes("asianfanfics.com")?"中文":"English"));
 works.forEach(w=>{w.source=sourceOf(w);w.language=languageOf(w);});
@@ -196,7 +198,7 @@ function render(){
  const lang=document.querySelector("#lang").value,src=document.querySelector("#source").value;
  const list=works.filter(w=>(!q||w.join(" ").toLowerCase().includes(q))&&(!o||w[3]===o)&&(!t||w[4]===t)&&(!s||w[6].includes(s))&&(!src||w.source===src)&&(!lang||w.language===lang));
  document.querySelector("#count").textContent=list.length+" / "+works.length+" 部";
- document.querySelector("#grid").innerHTML=list.map((w,i)=>`<article class="card"><span class="num">#${String(works.indexOf(w)+1).padStart(2,"0")}</span><div class="tags"><span class="tag pink">${esc(w[3])}</span><span class="tag">${esc(w[4])}</span><span class="tag">${esc(w[5])}</span><span class="tag">${esc(w[6])}</span></div><h2>${esc(w[0])}</h2><div class="cn">${esc(w[1])}</div><div class="meta"><span><b>作者</b>　${esc(w[2])}</span><span><b>简介</b>　${esc(w[7])}</span><span><b>来源</b>　${w.source}　·　<b>语言</b>　${w.language}</span></div><div class="actions"><a class="open" href="${esc(w[8])}" target="_blank" rel="noopener">进入原站 ↗</a>${w.language!=="中文"?'<a class="translate" href="https://translate.google.com/translate?sl=auto&tl=zh-CN&u='+encodeURIComponent(w[8])+'" target="_blank" rel="noopener">中文网页翻译 ↗</a>':""}</div></article>`).join("");
+ document.querySelector("#grid").innerHTML=list.map((w,i)=>`<article class="card"><span class="num">#${String(works.indexOf(w)+1).padStart(2,"0")}</span><div class="tags"><span class="tag pink">${esc(w[3])}</span><span class="tag">${esc(w[4])}</span><span class="tag">${esc(w[5])}</span><span class="tag">${esc(w[6])}</span></div><h2>${esc(w[0])}</h2><div class="cn">${esc(w[1])}</div><div class="meta"><span><b>作者</b>　${esc(w[2])}</span><span><b>简介</b>　${esc(w[7])}</span><span><b>来源</b>　${w.source}　·　<b>语言</b>　${w.language}</span>${dateOf(w)?`<span><b>发布日期</b>　${dateOf(w)}</span>`:""}</div><div class="actions"><a class="open" href="${esc(w[8])}" target="_blank" rel="noopener">进入原站 ↗</a>${w.language!=="中文"?'<a class="translate" href="https://translate.google.com/translate?sl=auto&tl=zh-CN&u='+encodeURIComponent(w[8])+'" target="_blank" rel="noopener">中文网页翻译 ↗</a>':""}</div></article>`).join("");
  document.querySelector("#empty").style.display=list.length?"none":"block";
 }
 ["q","order","type","setting","lang","source"].forEach(id=>document.getElementById(id).addEventListener("input",render));
