@@ -26,7 +26,7 @@ input:focus,select:focus{border-color:var(--pink2);box-shadow:0 0 0 4px rgba(244
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.tag{font-size:11px;padding:3px 8px;border-radius:999px;background:#e9f5fb;color:#6f9ab1}.tag.pink{background:#fbe8f1;color:#a36f87}
 h2{font-size:19px;line-height:1.35;margin:6px 30px 4px 0;color:#4f7083}.cn{font-size:13px;color:#b07891;margin-bottom:10px}
 .meta{font-size:13px;color:#6f7e88;display:grid;gap:3px}.meta b{font-weight:700;color:#607684}
-.open{display:inline-block;margin-top:13px;padding:8px 12px;border-radius:12px;background:#e1f1f8;color:#5d89a1;text-decoration:none;font-weight:700;border:1px solid #bcddec}.open:hover{background:#d4ebf5}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.open,.translate{display:inline-block;margin-top:13px;padding:8px 12px;border-radius:12px;background:#e1f1f8;color:#5d89a1;text-decoration:none;font-weight:700;border:1px solid #bcddec}.open:hover,.translate:hover{background:#d4ebf5}.translate{background:#fbe8f1;color:#a36f87;border-color:#efc5d8}
 .side-decor{position:fixed;top:22vh;bottom:18vh;width:54px;display:flex;flex-direction:column;justify-content:space-around;pointer-events:none;z-index:0}.side-decor.left{left:4px}.side-decor.right{right:4px}.side-decor span{display:block;width:9px;height:9px;border-radius:50%;background:#f0b9d2;box-shadow:18px 0 0 #c5e3f2,8px 15px 0 rgba(240,185,210,.72);animation:sideFloat 5.5s ease-in-out infinite}.side-decor span:nth-child(2n){width:13px;height:13px;background:#c4e2f1;box-shadow:-16px 4px 0 #f1c4d8;animation-delay:-2.2s}.side-decor span:nth-child(3n){border-radius:3px;transform:rotate(45deg);animation-delay:-3.4s}@keyframes sideFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-11px) rotate(12deg)}}
 .empty{text-align:center;padding:55px 10px;color:var(--muted);display:none}.foot{text-align:center;margin-top:30px;color:#8da0ac;font-size:12px}
 @media(max-width:760px){.controls{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.doodle{position:static;margin-top:18px;text-align:left}.side-decor{width:26px;opacity:.62}.side-decor.left{left:0}.side-decor.right{right:0}.panel,.card{outline-offset:-5px}}
@@ -49,8 +49,10 @@ h2{font-size:19px;line-height:1.35;margin:6px 30px 4px 0;color:#4f7083}.cn{font-
     <select id="order"><option value="">全部顺序</option><option>장하오×성한빈</option><option>성한빈×장하오</option><option>Sung Hanbin/Zhang Hao</option><option>Zhang Hao/Sung Hanbin</option><option>늘빈</option></select>
     <select id="type"><option value="">全部类型</option><option>长篇</option><option>中篇</option><option>连载</option><option>完结</option><option>短篇</option></select>
     <select id="setting"><option value="">全部设定</option><option>现代</option><option>校园</option><option>历史/宫廷</option><option>末世</option><option>游戏</option><option>魔法/幻想</option><option>悬疑</option><option>娱乐圈/音乐</option><option>神话/宗教</option><option>超级英雄</option><option>旅行/婚礼</option><option>职场</option><option>其他</option></select>
+    <select id="lang"><option value="">全部语言</option><option>中文</option><option>English</option><option>한국어</option></select>
+    <select id="source"><option value="">全部来源</option><option>AO3</option><option>Postype</option></select>
   </div>
-  <div class="stats"><span class="chip" id="count"></span><span class="chip">原站入口 / 部分AO3条目为作者作品页</span><span class="chip">不搬运正文</span></div>
+  <div class="stats"><span class="chip" id="count"></span><span class="chip">原站入口 / 部分AO3条目为作者作品页</span><span class="chip">不搬运正文</span><span class="chip">语言 / 来源可筛选</span></div>
 </section>
 
 <div id="grid" class="grid"></div>
@@ -58,7 +60,19 @@ h2{font-size:19px;line-height:1.35;margin:6px 30px 4px 0;color:#4f7083}.cn{font-
 <div class="foot">♡ 资料持续整理｜顺序按原站公开标记记录，不推断角色位置</div>
 </div>
 <script>
-const works=[
+const works=[[["某个夜晚","某个夜晚","little_ice_cube","Sung Hanbin/Zhang Hao","短篇","完结","现代","情人节短打；约1.9k字；中文原作","https://archiveofourown.org/works/79511246"],
+["只有我知道的事｜中部","只有我知道的事｜中部","little_ice_cube","Sung Hanbin/Zhang Hao","长篇","连载","幻想/IF","幻想+IF线；约11.1万字；服役中的冰冰与昊昊","https://archiveofourown.org/works/65734330"],
+["榴莲味的Alpha也会有自己的Omega吗","榴莲味的Alpha也会有自己的Omega吗","little_ice_cube","Sung Hanbin/Zhang Hao","中篇","完结","ABO/校园","AO设定；榴莲味冰×转学生昊；约8k字","https://archiveofourown.org/works/63842854"],
+["The scene","The scene","little_ice_cube","Sung Hanbin/Zhang Hao","中篇","连载","现代/短篇集","多篇短打合集；含 Leather glove and fur、忙里偷情、Bad bad boy 等","https://archiveofourown.org/works/63447640"],
+["抱抱哈哦","抱抱哈哦","little_ice_cube","Sung Hanbin/Zhang Hao","中篇","完结","动物拟人/童话","2024冰昊圣诞联产；小熊猫饲养员×小熊猫；正文约1.7万字","https://archiveofourown.org/works/61637023/chapters/157570264"],
+["抱抱哈哦｜番外","抱抱哈哦｜番外","little_ice_cube","Sung Hanbin/Zhang Hao","短篇","完结","动物拟人/童话","《抱抱哈哦》番外；约4.4k字","https://archiveofourown.org/works/61836385"],
+["只有我知道的事｜上部","只有我知道的事｜上部","little_ice_cube","Sung Hanbin/Zhang Hao","长篇","完结","幻想/IF","幻想+IF线；约10.4万字；上部完结","https://archiveofourown.org/works/56645140/chapters/143986102"],
+["双饼夹昊","双饼夹昊","little_ice_cube","Sung Hanbin/Zhang Hao","短篇","完结","梦境/IF","《只有我知道的事》梦境IF线番外","https://archiveofourown.org/works/59016685"],
+["pepero day","pepero day","little_ice_cube","Sung Hanbin/Zhang Hao","短篇","完结","现代/日常","《只有我知道的事》时间线番外","https://archiveofourown.org/works/60517822"],
+["Blue Moon","Blue Moon","little_ice_cube","Sung Hanbin/Zhang Hao","长篇","完结","现背/幻想","现背+幻想；时间线操作；约22.9万字；温馨向","https://archiveofourown.org/works/47462626"],
+["首尔夜雨","首尔夜雨","little_ice_cube","Sung Hanbin/Zhang Hao","中篇","完结","现背/破镜重圆","分手与复合；酸涩暧昧拉扯；约9.5k字","https://archiveofourown.org/works/46100170"],
+["〖出言成章｜彬昊〗二十三秒","二十三秒","V_sweetheartLanLi","Sung Hanbin/Zhang Hao","中篇","完结","Boys Planet/现背","主题曲录制期间；纯情向；约6.2k字","https://archive.transformativeworks.org/works/45003808"],
+["〖冰昊〗绿野仙踪","绿野仙踪","Seleinary","Sung Hanbin/Zhang Hao","中篇","完结","田园/治愈","牧场主×辞职金领；慢热治愈；约4.31万字","https://archive.transformativeworks.org/works/51300907"]],
 ["The Sun Prince","太阳王子","fruitsoda","Sung Hanbin/Zhang Hao","长篇","完结","历史/宫廷","王子AU；敌国宫廷相遇；23章完结；约12.6万词；5.9k+ kudos","https://secure.ao3.org/works/46750378"],
 ["we'll ride the wind and face it all","我们终将迎风而行","binneulbinbrainrot","Sung Hanbin/Zhang Hao","中篇","完结","魔法/幻想","《haobinwarts》续篇；毕业后的异地与未来；207 kudos","https://secure.ao3.org/works/79061986"],
 ["the wind, it blew me to you","风把我吹向你","binneulbinbrainrot","Sung Hanbin/Zhang Hao","中篇","完结","魔法/幻想","霍格沃茨AU；赫奇帕奇韩彬×拉文克劳章昊；604 kudos","https://secure.ao3.org/works/69931876"],
@@ -138,15 +152,17 @@ const works=[
 ["자석을 피하는 방법은 없나요..?","有没有躲开磁铁的方法？","하늘","늘빈","连载","连载","现代","互相救赎 / 都市","https://www.postype.com/@cx-en2"],
 ["환승연애의 재결합 가능성 1(%)","换乘恋爱的复合可能性1(%)","caster","늘빈","连载","连载","现代","恋综 / 前任 AU","https://www.postype.com/@ssummerforever"]
 ];
+const zhTitles=new Set(["某个夜晚","只有我知道的事｜中部","榴莲味的Alpha也会有自己的Omega吗","The scene","抱抱哈哦","抱抱哈哦｜番外","只有我知道的事｜上部","双饼夹昊","pepero day","Blue Moon","首尔夜雨","〖出言成章｜彬昊〗二十三秒","〖冰昊〗绿野仙踪","The Sun Prince","绿野仙踪","Game, Set, Mate"]);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function render(){
  const q=document.querySelector("#q").value.trim().toLowerCase(),o=document.querySelector("#order").value,t=document.querySelector("#type").value,s=document.querySelector("#setting").value;
- const list=works.filter(w=>(!q||w.join(" ").toLowerCase().includes(q))&&(!o||w[3]===o)&&(!t||w[4]===t)&&(!s||w[6].includes(s)));
+ const lang=document.querySelector("#lang").value,src=document.querySelector("#source").value;
+ const list=works.filter(w=>(!q||w.join(" ").toLowerCase().includes(q))&&(!o||w[3]===o)&&(!t||w[4]===t)&&(!s||w[6].includes(s))&&(!src||(w[8].includes("postype.com")?"Postype":"AO3")===src)&&(!lang||((w[8].includes("postype.com")?"한국어":(zhTitles.has(w[0])?"中文":"English"))===lang)));
  document.querySelector("#count").textContent=list.length+" / "+works.length+" 部";
- document.querySelector("#grid").innerHTML=list.map((w,i)=>`<article class="card"><span class="num">#${String(works.indexOf(w)+1).padStart(2,"0")}</span><div class="tags"><span class="tag pink">${esc(w[3])}</span><span class="tag">${esc(w[4])}</span><span class="tag">${esc(w[5])}</span><span class="tag">${esc(w[6])}</span></div><h2>${esc(w[0])}</h2><div class="cn">${esc(w[1])}</div><div class="meta"><span><b>作者</b>　${esc(w[2])}</span><span><b>简介</b>　${esc(w[7])}</span></div><a class="open" href="${esc(w[8])}" target="_blank" rel="noopener">进入原站 ↗</a></article>`).join("");
+ document.querySelector("#grid").innerHTML=list.map((w,i)=>`<article class="card"><span class="num">#${String(works.indexOf(w)+1).padStart(2,"0")}</span><div class="tags"><span class="tag pink">${esc(w[3])}</span><span class="tag">${esc(w[4])}</span><span class="tag">${esc(w[5])}</span><span class="tag">${esc(w[6])}</span></div><h2>${esc(w[0])}</h2><div class="cn">${esc(w[1])}</div><div class="meta"><span><b>作者</b>　${esc(w[2])}</span><span><b>简介</b>　${esc(w[7])}</span><span><b>来源</b>　${w[8].includes("postype.com")?"Postype":"AO3"}　·　<b>语言</b>　${w[8].includes("postype.com")?"한국어":(zhTitles.has(w[0])?"中文":"English")}</span></div><div class="actions"><a class="open" href="${esc(w[8])}" target="_blank" rel="noopener">进入原站 ↗</a>${!zhTitles.has(w[0])?'<a class="translate" href="https://translate.google.com/translate?sl=auto&tl=zh-CN&u='+encodeURIComponent(w[8])+'" target="_blank" rel="noopener">中文网页翻译 ↗</a>':""}</div></article>`).join("");
  document.querySelector("#empty").style.display=list.length?"none":"block";
 }
-["q","order","type","setting"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+["q","order","type","setting","lang","source"].forEach(id=>document.getElementById(id).addEventListener("input",render));
 render();
 </script>
 </body></html>
